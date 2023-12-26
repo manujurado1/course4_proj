@@ -75,7 +75,8 @@ class Dev(Configuration):
       'django.contrib.messages',
       'django.contrib.staticfiles',
       'movies',
-      'gh'
+      'gh',
+      'django_celery_results'
   ]
 
   MIDDLEWARE = [
@@ -162,3 +163,6 @@ class Dev(Configuration):
   # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
   DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+  CELERY_RESULT_BACKEND = "django-db"
+  CELERY_BROKER_URL = "redis://localhost:6379/0"
